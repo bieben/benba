@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    'bba_stats',
+    'stats',
     'rest_framework',
 ]
 
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "bba_site.urls"
+ROOT_URLCONF = "bba-backend.urls"
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "bba_site.wsgi.application"
+WSGI_APPLICATION = "bba-backend.wsgi.application"
 
 
 # Database

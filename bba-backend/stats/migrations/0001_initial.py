@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                     "player",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="bba_stats.player",
+                        to="stats.player",
                     ),
                 ),
             ],

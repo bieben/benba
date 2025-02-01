@@ -68,7 +68,7 @@ def update_schedule():
         status = "Completed" if home_score else "Upcoming"
 
         sql = """
-        INSERT INTO bba_stats_schedule (game_id, date, home_team, away_team, home_score, away_score, status)
+        INSERT INTO stats_schedule (game_id, date, home_team, away_team, home_score, away_score, status)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
         ON DUPLICATE KEY UPDATE home_score=%s, away_score=%s, status=%s;
         """
@@ -89,7 +89,7 @@ def update_standings():
         win_pct = team['WinPCT']
 
         sql = """
-        INSERT INTO bba_stats_standings (team, conference, wins, losses, win_percentage)
+        INSERT INTO stats_standings (team, conference, wins, losses, win_percentage)
         VALUES (%s, %s, %s, %s, %s)
         ON DUPLICATE KEY UPDATE wins=%s, losses=%s, win_percentage=%s;
         """

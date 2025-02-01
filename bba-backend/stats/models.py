@@ -52,3 +52,6 @@ class Standings(models.Model):
 
     def __str__(self):
         return f"{self.team} - {self.conference}: {self.wins}-{self.losses}"
+
+    class Meta:
+        ordering = ['-win_percentage']

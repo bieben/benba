@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("bba_stats", "0003_schedule_standings_alter_player_options"),
+        ("stats", "0003_schedule_standings_alter_player_options"),
     ]
 
     operations = [

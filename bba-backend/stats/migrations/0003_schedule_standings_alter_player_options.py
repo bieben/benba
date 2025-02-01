@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("bba_stats", "0002_alter_player_height"),
+        ("stats", "0002_alter_player_height"),
     ]
 
     operations = [
