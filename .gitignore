@@ -13,7 +13,7 @@ __pycache__/
 *.db
 *.sqlite3-journal
 *.db-journal
-*.DS_Store
+local_settings.py
 
 # Environments
 .env
@@ -27,6 +27,10 @@ venv.bak/
 # IDEs
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
 # Migrations
 */migrations/*
@@ -34,9 +38,6 @@ venv.bak/
 # Static and media files
 staticfiles/
 media/
-
-# Local settings
-local_settings.py
 
 # Coverage reports
 htmlcov/
@@ -49,3 +50,22 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+jspm_packages/
+
+# Vite
+dist/
+
+# Local environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+.DS_Store
