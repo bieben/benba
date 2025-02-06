@@ -9,7 +9,7 @@ class Player(models.Model):
     hometown = models.CharField(max_length=100)
     university = models.CharField(max_length=100, null=True, blank=True)
     contract = models.CharField(max_length=255, null=True, blank=True)
-    salary = models.IntegerField(blank=True)
+    salary = models.IntegerField(blank=True, null=True)
     position = models.CharField(max_length=5)
     number = models.IntegerField()
     dob = models.DateField()
@@ -42,6 +42,8 @@ class Schedule(models.Model):
 
     def __str__(self):
         return f"{self.date} - {self.home_team} vs {self.away_team}"
+    class Meta:
+        ordering = ['-date']
 
 class Standings(models.Model):
     team = models.CharField(max_length=100, unique=True)
