@@ -27,6 +27,6 @@ jobs:
 
       - name: Run update_data.py
         run: |
-          cd bba-backend
+          cd bba-backend/stats
           source venv/bin/activate
           python update_data.py
