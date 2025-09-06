@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'bba_db',
         'USER': 'root',
         'PASSWORD': 'Zyt123456!',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
