@@ -4,9 +4,9 @@ from nba_api.stats.endpoints import playercareerstats, leaguegamefinder, leagues
 from datetime import datetime
 
 conn = mysql.connector.connect(
-    host="localhost",
+    host="127.0.0.1",
     user="root",
-    password="zyt123456",
+    password="Zyt123456!",
     database="bba_db"
 )
 cursor = conn.cursor()
