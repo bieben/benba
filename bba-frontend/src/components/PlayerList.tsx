@@ -29,8 +29,8 @@ function PlayerList({ onSelect }: PlayerListProps) {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://127.0.0.1:8000/api/players").then((res) => res.json()),
-      fetch("http://127.0.0.1:8000/api/game-stats").then((res) => res.json()),
+      fetch("http://47.96.76.43:8000/api/players").then((res) => res.json()),
+      fetch("http://47.96.76.43:8000/api/game-stats").then((res) => res.json()),
     ])
       .then(([playersData, statsData]) => {
         const statsMap = new Map(

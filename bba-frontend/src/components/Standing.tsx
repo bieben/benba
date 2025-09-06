@@ -14,7 +14,7 @@ function Standing() {
     const [standings, setStandings] = useState<Team[]>([]);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/standings/")
+        fetch("http://47.96.76.43:8000/api/standings/")
             .then(response => response.json())
             .then(data => setStandings(data))
             .catch(error => console.error("Error fetching standings:", error));
