@@ -133,5 +133,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # 允许前端访问
+    "http://47.96.76.43:5173",  # 生产环境前端访问
 ]
 CORS_ALLOW_CREDENTIALS = True
