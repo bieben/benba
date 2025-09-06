@@ -157,71 +157,6 @@ CREATE INDEX idx_stats_schedule_game_id ON stats_schedule(game_id);
 CREATE INDEX idx_stats_standings_conference ON stats_standings(conference);
 CREATE INDEX idx_stats_standings_win_pct ON stats_standings(win_percentage);
 
--- 插入示例数据
--- 插入快船队球员数据
-INSERT INTO stats_player (player_id, name, avatar_path, height, weight, hometown, university, contract, salary, position, number, dob) VALUES
-(1, 'Kawhi Leonard', 'kawhi_leonard.jpg', '6-7', 225, 'Los Angeles, CA', 'San Diego State', '4 years/$176.3M', 48787676, 'SF', 2, '1991-06-29'),
-(2, 'James Harden', 'james_harden.jpg', '6-5', 220, 'Los Angeles, CA', 'Arizona State', '2 years/$70M', 35640000, 'PG', 1, '1989-08-26'),
-(3, 'Ivica Zubac', 'ivica_zubac.jpg', '7-0', 240, 'Mostar, Bosnia', NULL, '3 years/$33M', 11700000, 'C', 40, '1997-03-18'),
-(4, 'Norman Powell', 'norman_powell.jpg', '6-3', 215, 'San Diego, CA', 'UCLA', '4 years/$64M', 16000000, 'SG', 24, '1993-05-25'),
-(5, 'Derrick Jones Jr.', 'derrick_jones_jr.jpg', '6-6', 210, 'Chester, PA', 'UNLV', '3 years/$30M', 10000000, 'SF', 55, '1997-02-15'),
-(6, 'Kris Dunn', 'kris_dunn.jpg', '6-3', 205, 'New London, CT', 'Providence', '3 years/$17M', 5666667, 'PG', 16, '1994-03-18'),
-(7, 'Kevin Porter Jr.', 'kevin_porter_jr.jpg', '6-4', 203, 'Seattle, WA', 'USC', '2 years/$8.2M', 4100000, 'SG', 3, '2000-05-04'),
-(8, 'Nicolas Batum', 'nicolas_batum.jpg', '6-8', 200, 'Lisieux, France', NULL, '2 years/$9.6M', 4800000, 'PF', 33, '1988-12-14');
-
--- 插入球员统计数据
-INSERT INTO stats_gamestats (player_id, ppg, rpg, apg, spg, bpg, mpg, fg_pct, three_pct, ft_pct, ts_pct) VALUES
-(1, 23.4, 6.2, 3.7, 1.8, 0.9, 34.6, 52.5, 44.3, 88.5, 64.7),
-(2, 21.2, 8.1, 8.5, 1.1, 0.8, 35.9, 42.8, 38.1, 87.0, 60.8),
-(3, 15.7, 12.2, 1.8, 0.4, 1.2, 28.4, 65.9, 0.0, 73.1, 67.8),
-(4, 23.3, 3.1, 2.4, 1.0, 0.4, 32.8, 49.0, 44.1, 82.7, 62.4),
-(5, 10.9, 3.2, 1.7, 0.7, 0.6, 24.7, 49.2, 35.1, 76.9, 56.8),
-(6, 9.6, 4.8, 6.2, 1.3, 0.3, 23.6, 44.9, 35.8, 76.2, 52.7),
-(7, 8.8, 2.7, 3.1, 0.8, 0.2, 18.4, 41.2, 31.4, 75.8, 50.3),
-(8, 5.2, 4.1, 2.0, 0.6, 0.3, 20.8, 48.6, 39.7, 81.3, 58.9);
-
--- 插入赛程数据
-INSERT INTO stats_schedule (game_id, date, home_team, away_team, home_score, away_score, status) VALUES
-('0022500001', '2025-02-15', 'LA Clippers', 'Boston Celtics', 115, 108, 'Final'),
-('0022500002', '2025-02-17', 'LA Clippers', 'Miami Heat', 122, 110, 'Final'),
-('0022500003', '2025-02-20', 'Denver Nuggets', 'LA Clippers', 105, 118, 'Final'),
-('0022500004', '2025-02-22', 'LA Clippers', 'Phoenix Suns', NULL, NULL, 'Scheduled'),
-('0022500005', '2025-02-25', 'Golden State Warriors', 'LA Clippers', NULL, NULL, 'Scheduled'),
-('0022500006', '2025-02-27', 'LA Clippers', 'Sacramento Kings', NULL, NULL, 'Scheduled');
-
--- 插入排名数据
-INSERT INTO stats_standings (team, conference, wins, losses, win_percentage) VALUES
-('Boston Celtics', 'East', 35, 15, 0.700),
-('Milwaukee Bucks', 'East', 32, 18, 0.640),
-('Philadelphia 76ers', 'East', 30, 20, 0.600),
-('Miami Heat', 'East', 28, 22, 0.560),
-('New York Knicks', 'East', 27, 23, 0.540),
-('Brooklyn Nets', 'East', 25, 25, 0.500),
-('Atlanta Hawks', 'East', 23, 27, 0.460),
-('Chicago Bulls', 'East', 22, 28, 0.440),
-('Toronto Raptors', 'East', 20, 30, 0.400),
-('Orlando Magic', 'East', 18, 32, 0.360),
-('Washington Wizards', 'East', 15, 35, 0.300),
-('Charlotte Hornets', 'East', 12, 38, 0.240),
-('Indiana Pacers', 'East', 10, 40, 0.200),
-('Detroit Pistons', 'East', 8, 42, 0.160),
-('Cleveland Cavaliers', 'East', 6, 44, 0.120),
-('Denver Nuggets', 'West', 38, 12, 0.760),
-('Phoenix Suns', 'West', 35, 15, 0.700),
-('Memphis Grizzlies', 'West', 33, 17, 0.660),
-('Sacramento Kings', 'West', 31, 19, 0.620),
-('Golden State Warriors', 'West', 30, 20, 0.600),
-('LA Clippers', 'West', 29, 21, 0.580),
-('Minnesota Timberwolves', 'West', 27, 23, 0.540),
-('New Orleans Pelicans', 'West', 25, 25, 0.500),
-('Dallas Mavericks', 'West', 24, 26, 0.480),
-('Utah Jazz', 'West', 22, 28, 0.440),
-('Los Angeles Lakers', 'West', 21, 29, 0.420),
-('Portland Trail Blazers', 'West', 19, 31, 0.380),
-('Oklahoma City Thunder', 'West', 17, 33, 0.340),
-('San Antonio Spurs', 'West', 15, 35, 0.300),
-('Houston Rockets', 'West', 12, 38, 0.240);
-
 -- 插入 Django 迁移记录
 INSERT INTO django_migrations (app, name, applied) VALUES
 ('contenttypes', '0001_initial', NOW()),
@@ -297,16 +232,7 @@ INSERT INTO auth_permission (content_type_id, codename, name) VALUES
 (10, 'delete_standings', 'Can delete standings'),
 (10, 'view_standings', 'Can view standings');
 
--- 创建超级管理员用户 (用户名: admin, 密码: admin123)
--- 注意：这里使用的是简单的密码哈希，生产环境中应该使用更安全的密码
-INSERT INTO auth_user (password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES
-('pbkdf2_sha256$600000$YourSaltHere$YourHashedPasswordHere', NULL, 1, 'admin', 'Admin', 'User', 'admin@example.com', 1, 1, NOW());
-
 COMMIT;
 
 -- 显示创建结果
-SELECT 'Database bba_db initialized successfully!' as Status;
-SELECT COUNT(*) as PlayerCount FROM stats_player;
-SELECT COUNT(*) as GameStatsCount FROM stats_gamestats;
-SELECT COUNT(*) as ScheduleCount FROM stats_schedule;
-SELECT COUNT(*) as StandingsCount FROM stats_standings;
+SELECT 'Database bba_db initialized successfully (tables only)!' as Status;
