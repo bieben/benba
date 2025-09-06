@@ -18,7 +18,7 @@ class ScheduleViewSet(viewsets.ModelViewSet):
     serializer_class = ScheduleSerializer
 
 class StandingsViewSet(viewsets.ModelViewSet):
-    queryset = Standings.objects.all().order_by('-win_percentage', '-wins')
+    queryset = Standings.objects.all()
     serializer_class = StandingsSerializer
 
 def get_scoreboard(request):
