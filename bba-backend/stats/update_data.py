@@ -6,7 +6,7 @@ from datetime import datetime
 conn = mysql.connector.connect(
     host="127.0.0.1",
     user="root",
-    password="Zyt123456!",
+    password="zyt123456",
     database="bba_db"
 )
 cursor = conn.cursor()
@@ -18,9 +18,10 @@ def update_schedule():
 
     gamefinder = leaguegamefinder.LeagueGameFinder(team_id_nullable=clippers_id)
     games = gamefinder.get_data_frames()[0]
-    games_2425 = games[games.SEASON_ID.str[-4:] == '2024']
+    latest_season = datetime.now().year if datetime.now().month > 10 else datetime.now().year - 1
+    games_latest = games[games.SEASON_ID.str[-4:] == str(latest_season)]
 
-    for index, game in games_2425.iterrows():
+    for index, game in games_latest.iterrows():
         game_id = game['GAME_ID']
         date = datetime.strptime(game['GAME_DATE'], '%Y-%m-%d').date()
         matchup = game['MATCHUP']
