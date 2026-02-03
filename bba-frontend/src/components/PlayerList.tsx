@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../config";
 
 type Player = {
   id: number;
@@ -29,8 +30,8 @@ function PlayerList({ onSelect }: PlayerListProps) {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://47.96.76.43:8000/api/players").then((res) => res.json()),
-      fetch("http://47.96.76.43:8000/api/game-stats").then((res) => res.json()),
+      fetch(`${API_BASE_URL}/api/players`).then((res) => res.json()),
+      fetch(`${API_BASE_URL}/api/game-stats`).then((res) => res.json()),
     ])
       .then(([playersData, statsData]) => {
         const statsMap = new Map(

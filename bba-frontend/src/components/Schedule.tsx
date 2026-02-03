@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../config";
 
 function Schedule() {
   interface Game {
@@ -25,11 +26,11 @@ function Schedule() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const scheduleResponse = await fetch("http://47.96.76.43:8000/api/schedule/");
+        const scheduleResponse = await fetch(`${API_BASE_URL}/api/schedule/`);
         const scheduleData = await scheduleResponse.json();
         setGames(scheduleData);
 
-        const scoreboardResponse = await fetch("http://47.96.76.43:8000/api/scoreboard/");
+        const scoreboardResponse = await fetch(`${API_BASE_URL}/api/scoreboard/`);
         const scoreboardData = await scoreboardResponse.json();
         if (scoreboardData.message === "No LAC game today") {
           setScoreboard(null);
